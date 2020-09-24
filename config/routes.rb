@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     post "/register", to: "registers#create"
 
     resources :users, only: %i(show edit update)
-    resources :boards
+    resources :boards do
+      get "/tag/:id", to: "tags#edit"
+      resource :tag
+    end
     resources :labels, only: :create
   end
 end

@@ -50,6 +50,13 @@ en:
       fail: Invalid length
     find_board:
       cant_find: Can't find board
+  tags:
+    edit:
+      submit: Update
+      join: Join tag
+      name: Name
+      description: Description
+      deadline: Deadline
   registers:
     create:
         failed: Register failed

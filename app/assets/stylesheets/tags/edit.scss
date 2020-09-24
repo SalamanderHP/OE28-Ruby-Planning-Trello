@@ -1,0 +1,99 @@
+nav {
+  background-color: #ebe6e3;
+
+  .tag-name {
+    padding: 50px 0px 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+      display: block;
+    }
+
+    .info {
+      display: block;
+    }
+  }
+
+  .member {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+
+    img {
+      margin: 0px 2px;
+    }
+  }
+
+  .tag-description {
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+
+    p{
+      margin: 0;
+    }
+  }
+}
+
+.form-wrapper {
+  label {
+    font-weight: 600;
+    margin: 10px 0px;
+  }
+
+  .edit-section {
+    .expand-btn {
+      border-radius: 3px;
+      color: gray;
+      width: 100%;
+      background-color: #ebe6e3;
+      padding: 10px 10px;
+      display: block;
+    }
+
+    .add-btn {
+      margin: 10px 0px;
+    }
+
+    .checkbox {
+      span,
+      input {
+        display: inline;
+        margin: 0px 5px;
+      }
+    }
+  }
+}
+
+.edit-wrapper {
+  .join {
+    margin: 20px 0px;
+  }
+
+  .edit-section {
+    margin: 10px 0px;
+
+    label {
+      font-weight: 600;
+    }
+
+    input {
+      margin: 10px 0px;
+    }
+  }
+
+  .checklist {
+    .list-btn {
+      border-radius: 3px;
+      color: gray;
+      margin: 10px 0px;
+      width: 100%;
+      background-color: #ebe6e3;
+      padding: 10px 10px;
+      display: block;
+    }
+  }
+}

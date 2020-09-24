@@ -1,0 +1,105 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag "tags/edit", "data-turbolinks-track": "reload" %>
+<% end %>
+
+<main>
+  <nav>
+    <div class="tag-info">
+      <div class="tag-name">
+        <h1><%= @tag.name %></h1>
+        <div class="info">
+          <span><%= @tag.deadline %></span>
+        </div>
+      </div>
+      <div class="tag-description">
+        <p>
+          <%= @tag.description %>
+        </p>
+      </div>
+      <div class="member">
+        <%= render partial: "tags/user", collection: @tag.add_users, as: :user %>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="form-wrapper">
+          <%= form_for @tag, url: board_tag_path do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
+            <%= f.label t ".name" %>
+            <%= f.text_field :name, class: "form-control", value: @tag.name %>
+            <%= f.label t ".description" %>
+            <%= f.text_area :description, class: "form-control" do %>
+              <%= @tag.description %>
+            <% end %>
+            <%= f.submit t(".submit"), class: "d-block btn btn-success mt-3" %>
+          <% end %>
+          <%# <div class="edit-section">
+            <label for="">Dinh kem</label>
+            <input type="file" class="form-control">
+            <button class="btn btn-success add-btn">Them dinh kem</button>
+            <p>
+              <a class="expand-btn" data-toggle="collapse" href="#attach" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Danh sach dinh kem
+              </a>
+            </p>
+            <div class="collapse" id="attach">
+              <div class="card card-body">
+                link
+              </div>
+            </div>
+          </div>
+          <div class="edit-section">
+            <label for="">Label</label>
+            <input type="text" class="form-control">
+            <button class="btn btn-success add-btn">Them nhan</button>
+            <p>
+              <a class="expand-btn" data-toggle="collapse" href="#label" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Danh sach nhan
+              </a>
+            </p>
+            <div class="collapse" id="label">
+              <div class="card card-body">
+                <div class="checkbox">
+                  <%= render partial: "tags/label", collection: @tag.add_labels, as: :label %>
+                <%#</div>
+              </div>
+            </div>
+          </div> %>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="edit-wrapper">
+          <button class="btn btn-success join"><%= t ".join" %></button>
+          <%# <div class="edit-section add-memeber">
+            <label for="">Moi thanh vien</label>
+            <input class="form-control" type="text">
+            <button class="btn btn-success">Moi</button>
+          </div>
+          <div class="edit-section checklist">
+            <label for="">Checklist</label>
+            <input class="form-control" type="text">
+            <button class="btn btn-success">Them</button>
+            <p>
+              <a class="list-btn" data-toggle="collapse" href="#list" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Danh sach cong viec
+              </a>
+            </p>
+            <div class="collapse" id="list">
+              <%= render partial: "tags/checklist", collection: @tag.checklists, as: :checklist %>
+            <%#</div>
+          </div> %>
+          <div class="edit-section dateline">
+            <%= form_for @tag, url: board_tag_path do |f| %>
+              <%= render "shared/error_messages", object: f.object %>
+              <%= f.label t ".deadline" %>
+              <%= f.date_field :deadline, class: "form-control", value: @tag.deadline.strftime("%Y-%m-%d") %>
+              <%= f.submit t(".submit"), class: "d-block btn btn-success mt-3" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
